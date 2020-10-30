@@ -1,0 +1,73 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary float-right m-2" 
+data-toggle="modal" data-target="#exampleModal"
+(click)="addClick()"
+data-backdrop="static" data-keyboard="false">
+    Thêm Chức Vụ
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+      <!-- long text -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{ModalTitle}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+          (click)="closeClick()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <app-add-edit-cv [cv]="cv" *ngIf="ActivateAddEditCvComp"></app-add-edit-cv>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+              <div class="d-flex flex-row">
+                <input [(ngModel)]="maCvFilter" class="form-control"
+                (keyup)="FilterFn()" placeholder="Bộ Lọc">
+              </div>
+              
+              Mã Chức Vụ</th>
+
+            <th>
+              <div class="d-flex flex-row">
+                <input [(ngModel)]="tenCvFilter" class="form-control"
+                (keyup)="FilterFn()" placeholder="Bộ Lọc">
+              </div>
+              
+              Tên Chức Vụ</th>
+            
+
+            <th>Tùy Chọn</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let dataItem of ChucVuList">
+            <td>{{dataItem.maCv}}</td>
+            <td>{{dataItem.tenCv}}</td>
+            <td>
+                <button type="button" class="btn btn-light mr-1"
+                data-toggle="modal" data-target="#exampleModal"
+                (click)="editClick(dataItem)"
+                data-backdrop="static" data-keyboard="false"
+                >
+                    Chỉnh Sửa
+                </button>
+                <button type="button" class="btn btn-light mr-1"
+                (click)="deleteClick(dataItem)"
+                >
+                    Xóa
+                </button>
+              
+                
+            </td>
+        </tr>
+    </tbody>
+</table>

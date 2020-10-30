@@ -1,0 +1,16 @@
+<div class="form-group row">
+
+    <label class="col-sm-2 col-form-label">Tên Chức vụ</label>
+    <div class="col-sm-10">
+        <input type="text" class="form-control" [(ngModel)]="tenCv"
+        placeholder="Nhập Tên Chức Vụ ...">
+    </div>
+</div>
+
+<button (click)="addChucvu()" *ngIf="cv.maCv==0" class="btn btn-primary">
+    Add
+</button>
+
+<button (click)="updateChucvu()" *ngIf="cv.maCv!=0" class="btn btn-primary">
+    Update
+</button>

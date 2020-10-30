@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "angularGV"
+    }
+  },
+  "defaultProject": "angularGV",
+  "cli": {
+    "analytics": "2e782c90-3c4e-4938-a009-25d08155a936"
+  }
 }
